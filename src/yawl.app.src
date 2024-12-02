@@ -1,0 +1,17 @@
+{application, yawl, [
+  {vsn, "0.1.0"},
+  {applications, [
+    kernel,
+    stdlib
+  ]},
+  {description, "A simple typed and tested wrapper for ports using spawn"},
+  {authors, [
+    "barcek"
+  ]},
+  {licenses, [
+    "MIT"
+  ]},
+  {links, [
+    {"Repository", "https://github.com/barcek/yawl/"}
+  ]}
+]}.
