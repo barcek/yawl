@@ -15,7 +15,7 @@ Most simply, call either `:put/1` or `:get/1`, passing the command to be run:
 
 For example:
 
-```erlang
+```
 0> yawl:put("echo Using yawl").
 Using yawl
 [yawl] Exited with status 0
@@ -33,7 +33,7 @@ The functions `:put/2` and `:get/2` accept a list for options, with one currentl
 
 ### Note
 
-A command should apply a pipe (`|`) as expected, but only ever run as far as any boolean AND (`&&`) or semi-colon (`;`) present. The [tests](#tests) can be used to check this behaviour locally.
+A command should apply a pipe (`|`) as expected, but only ever run as far as any boolean AND (`&&`) or semi-colon (`;`) present. The tests (see [Making changes](#making-changes) below) can be used to check this behaviour locally.
 
 As with any use of the shell, and any use of intermediary code invoking the shell, care should be taken. The yawl source code should be reviewed before proceeding and any intended use of yawl should first be tested in a context in which no harm can be done.
 
@@ -55,7 +55,7 @@ The functions can then be used directly with `rebar3 shell`.
 
 Compiling from the Erlang shell, within the root directory, and providing an optional out directory, assuming it exists:
 
-```erlang
+```
 0> c("src/yawl", [{outdir, "out"}]).
 {ok,yawl}
 ```
@@ -82,9 +82,16 @@ rebar3 check
 
 From the Erlang shell, the tests may need to be compiled. Within the root directory, and providing an optional out directory, assuming it exists:
 
-```erlang
+```
 0> c("test/yawl_tests", [{outdir, "out"}]).
 {ok,yawl_tests}
 1> eunit:test(yawl).          
 ...
 ```
+
+## Development plan
+
+The following are the expected next steps in the development of the code base. The general medium-term aim is a versatile and intuitive means of calling external code. Pull requests are welcome for these and other potential improvements.
+
+- extend available options per `open_port`
+- allow for composite command strings
